@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Image, Button, TextInput, View, Alert, Text } from 'react-native'
 import * as SQLlite from 'expo-sqlite'
-
+import styles from './styles/quiz-styles'; 
 const db = SQLlite.openDatabase('quiz.db')
 
 export default function Quiz() {
@@ -44,32 +44,23 @@ export default function Quiz() {
 
     return (
         <View
-            style={{
-                alignItems: 'center',
-                width: '90%',
-                marginStart: 'auto',
-                marginEnd: 'auto',
-            }}
+            style={styles.container}
         >
             <Image
                 source={require('../assets/logo.png')}
-                style={{ width: '90%', height: 150, marginBottom: 45 }}
+                style={styles.logo}
             />
 
             <Text
-                style={{
-                    fontSize: 16,
-                    marginBottom: 5,
-                    textAlign: 'justify',
-                    width: '90%',
-                }}
+                style={styles.multilineInput}
                 multiline={true}
             >
                 {pergunta}
             </Text>
 
             {alternativas.map((alternativa, index) => (
-                <View style={{ width: '90%', marginBottom: 15 }}>
+                
+                <View style={styles.container2}>
                     <Button
                         key={index}
                         title={`${String.fromCharCode(
@@ -82,7 +73,7 @@ export default function Quiz() {
                 </View>
             ))}
 
-            <View style={{ width: '90%', marginBottom: 15 }}>
+            <View style={styles.container2}>
                 <Button title="Próxima pergunta" onPress={carregarPergunta} />
             </View>
         </View>

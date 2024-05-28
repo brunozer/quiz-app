@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { Image, Button, TextInput, View, Alert } from 'react-native'
+import { Image, Button,Text, TextInput, View, Alert, TouchableOpacity } from 'react-native'
 import * as SQLlite from 'expo-sqlite'
-
+import styles from './styles/edit-styles'; 
 const db = SQLlite.openDatabase('quiz.db')
 
 export default function Edit() {
@@ -112,10 +112,10 @@ export default function Edit() {
     }
 
     return (
-        <View style={{ alignItems: 'center' }}>
+        <View style={styles.container}>
             <Image
                 source={require('../assets/logo.png')}
-                style={{ width: '90%', height: 150, marginBottom: 45 }}
+                style={styles.logo}
             />
             <TextInput
                 placeholder="Digite a pergunta"
@@ -123,90 +123,58 @@ export default function Edit() {
                 multiline={true}
                 onChangeText={setPergunta}
                 numberOfLines={4}
-                style={{
-                    height: 80,
-                    borderColor: 'blue',
-                    borderWidth: 1,
-                    marginBottom: 5,
-                    width: '90%',
-                }}
+                style={styles.multiLineInput}
             />
             <TextInput
                 placeholder="Digite a alternativa A"
                 value={alternativaA}
                 onChangeText={setAlternativaA}
-                style={{
-                    borderColor: 'blue',
-                    borderWidth: 1,
-                    marginBottom: 5,
-                    width: '90%',
-                }}
+                style={styles.input}
             />
             <TextInput
                 placeholder="Digite a alternativa B"
                 value={alternativaB}
                 onChangeText={setAlternativaB}
-                style={{
-                    borderColor: 'blue',
-                    borderWidth: 1,
-                    marginBottom: 5,
-                    width: '90%',
-                }}
+                style={styles.input}
             />
             <TextInput
                 placeholder="Digite a alternativa C"
                 value={alternativaC}
                 onChangeText={setAlternativaC}
-                style={{
-                    borderColor: 'blue',
-                    borderWidth: 1,
-                    marginBottom: 5,
-                    width: '90%',
-                }}
+                style={styles.input}
             />
             <TextInput
                 placeholder="Digite a alternativa D"
                 value={alternativaD}
                 onChangeText={setAlternativaD}
-                style={{
-                    borderColor: 'blue',
-                    borderWidth: 1,
-                    marginBottom: 5,
-                    width: '90%',
-                }}
+                style={styles.input}
             />
             <TextInput
                 placeholder="Digite a letra da resposta correta"
                 value={respostaCorreta}
                 onChangeText={setRespostaCorreta}
-                style={{
-                    borderColor: 'blue',
-                    borderWidth: 1,
-                    marginBottom: 5,
-                    width: '90%',
-                }}
+                style={styles.input}
             />
-            <View style={{ marginBottom: 15 }}>
+            <View style={styles.container2}>
                 <Button
                     title="Atualizar Pergunta"
                     onPress={atualizarPergunta}
-                    style={{ marginBottom: 5 }}
+                    style={styles.buttonDefault}
                 />
             </View>
-            <View style={{ marginBottom: 15 }}>
-                <Button
-                    title="Deletar Pergunta"
-                    onPress={deletarPergunta}
-                    color={'red'}
-                    style={{ marginBottom: 5 }}
-                />
+            <View style={styles.container2}>
+                <TouchableOpacity style= {styles.buttonDefault}>
+                    <Text 
+                           title="Deletar Pergunta"
+                           onPress={deletarPergunta}
+                           style = {styles.deletarPergunta}
+                           >
+                            Deletar pergunta
+                    </Text>
+                </TouchableOpacity>
             </View>
             <View
-                style={{
-                    flexDirection: 'row',
-                    justifyContent: 'space-between',
-                    width: '90%',
-                }}
+                style={styles.container3}
             >
                 <Button title="Voltar" onPress={perguntaAnterior} />
                 <Button title="Avançar" onPress={proximaPergunta} />

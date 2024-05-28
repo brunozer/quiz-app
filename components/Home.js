@@ -1,20 +1,21 @@
 import React from 'react'
 import { Image, Button, View } from 'react-native'
-
+import styles from './styles/home-styles'; 
+ 
 export default function Home({ navigation }) {
     return (
-        <View style={{ alignItems: 'center' }}>
+        <View style={styles.container1}>
             <Image
                 source={require('../assets/logo.png')}
-                style={{ width: '90%', height: 150, marginBottom: 45 }}
+                style={styles.logo}
             />
-            <View style={{ marginBottom: 15 }}>
+            <View style={styles.container2}>
                 <Button
                     title="Adicionar Pergunta"
                     onPress={() => navigation.navigate('Add')}
                 />
             </View>
-            <View style={{ marginBottom: 15 }}>
+            <View style={styles.container2}>
                 <Button
                     title="Iniciar Quiz"
                     onPress={() => navigation.navigate('Quiz')}

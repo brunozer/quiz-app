@@ -11,6 +11,7 @@ export default function Edit() {
     const [alternativaB, setAlternativaB] = useState('')
     const [alternativaC, setAlternativaC] = useState('')
     const [alternativaD, setAlternativaD] = useState('')
+    const [registros, setRegistros] = useState('')
     const [respostaCorreta, setRespostaCorreta] = useState('')
 
     useEffect(() => {
@@ -87,7 +88,22 @@ export default function Edit() {
             )
         })
     }
-
+    const countRecords = () => {
+        db.transaction((tx) => {
+            tx.executeSql(
+                'SELECT COUNT(*) as count FROM perguntas',
+                [],
+                (_, { rows }) => {
+                    const row = rows.item(0)
+                    setRegistros(row.count)
+                },
+                (tx, error) => {
+                    console.log(error)
+                }
+            )
+        })
+    }
+    countRecords();
     const perguntaAnterior = () => {
         db.transaction((tx) => {
             tx.executeSql(
@@ -117,6 +133,7 @@ export default function Edit() {
                 source={require('../assets/logo.png')}
                 style={styles.logo}
             />
+             <Text style= {styles.numeroDePerguntas}> Total de perguntas: {registros}</Text>
             <TextInput
                 placeholder="Digite a pergunta"
                 value={pergunta}

@@ -15,12 +15,18 @@ const styles = StyleSheet.create({
         height: 150,
         marginBottom: 45,
     },
-    multilineInput: {
-            fontSize: 16,
-            marginBottom: 5,
-            textAlign: 'justify',
-            width: '90%',
-    }
+    multiLineInput: {
+        height: 60,
+        borderColor: 'blue',
+        borderWidth: 1,
+        padding: 8,
+        fontWeight: '700',
+        borderRadius: 10,
+        marginBottom: 30,
+        width: '90%',
+        color: '#ffff',
+        backgroundColor: '#000'
+    },
 });
  
 export default styles;

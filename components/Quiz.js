@@ -52,7 +52,7 @@ export default function Quiz() {
             />
 
             <Text
-                style={styles.multilineInput}
+                style={styles.multiLineInput}
                 multiline={true}
             >
                 {pergunta}

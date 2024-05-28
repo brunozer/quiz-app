@@ -15,9 +15,17 @@ const styles = StyleSheet.create({
     },
     buttonDefault: {
          marginBottom: 5 ,
-         padding: 10,
+         padding: 8,
          borderRadius: 3,
          backgroundColor: 'red'
+    },
+    numeroDePerguntas: {
+        fontSize: 20,
+        backgroundColor: 'green',
+        padding: 7,
+        borderRadius: 10,
+        color: '#fff',
+        marginBottom: 30
     },
     deletarPergunta: {
          color: '#ffff'
@@ -31,15 +39,21 @@ const styles = StyleSheet.create({
         borderColor: 'blue',
         borderWidth: 1,
         marginBottom: 5,
+        padding: 5,
         width: '90%',
     },
 
     multiLineInput: {
-        height: 80,
+        height: 60,
         borderColor: 'blue',
         borderWidth: 1,
-        marginBottom: 5,
+        padding: 8,
+        fontWeight: '700',
+        borderRadius: 10,
+        marginBottom: 30,
         width: '90%',
+        color: '#ffff',
+        backgroundColor: '#000'
     },
 
     height: 80,

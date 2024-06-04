@@ -88,7 +88,7 @@ export default function Edit() {
             )
         })
     }
-    const countRecords = () => {
+    const contaPerguntas = () => {
         db.transaction((tx) => {
             tx.executeSql(
                 'SELECT COUNT(*) as count FROM perguntas',
@@ -103,7 +103,7 @@ export default function Edit() {
             )
         })
     }
-    countRecords();
+    contaPerguntas();
     const perguntaAnterior = () => {
         db.transaction((tx) => {
             tx.executeSql(

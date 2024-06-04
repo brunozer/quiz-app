@@ -4,6 +4,7 @@ import styles from './styles/home-styles';
  
 export default function Home({ navigation }) {
     return (
+   
         <View style={styles.container1}>
             <Image
                 source={require('../assets/logo.png')}
@@ -22,11 +23,22 @@ export default function Home({ navigation }) {
                     color={'green'}
                 />
             </View>
+            <View style={styles.container2}>           
             <Button
                 title="Editar Perguntas"
                 onPress={() => navigation.navigate('Edit')}
                 color={'gold'}
             />
+            </View>
+ 
+            <View style={styles.container2}>
+               <Button
+                title="Quiz 10 legal"
+                onPress={() => navigation.navigate('Quiz10')}
+                color={'red'}
+            />
+            </View>
         </View>
+       
     )
 }
